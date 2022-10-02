@@ -104,6 +104,7 @@ public class PuzzleCandle : MonoBehaviourPunCallbacks
     public bool fire_state;
 
     public PhotonView PV;
+    GameObject candleTutorial;
 
     // Start is called before the first frame update
     void Start()
@@ -113,6 +114,7 @@ public class PuzzleCandle : MonoBehaviourPunCallbacks
         puzzleDirector = GameObject.Find("PuzzleDirector");
 
         PV = photonView;
+        candleTutorial = GameObject.Find("CandleTutorial");
     }
 
     // Update is called once per frame
@@ -123,25 +125,27 @@ public class PuzzleCandle : MonoBehaviourPunCallbacks
 
     public void Puzzle1()
     {
-        if (Input.GetButtonDown("Interaction") && GameManagement.staticGetLighter == true && fire.GetComponent<ParticleSystem>().isPlaying == false && fire_state && (GameManagement.staticPlaymode == "soloplay" || GameManagement.staticPlaymode == null))
+        if (Input.GetButtonDown("Interaction") && GameManagement.staticGetLighter && fire_state && GameManagement.staticTurnOnLighter && (GameManagement.staticPlaymode == "soloplay" || GameManagement.staticPlaymode == null))
         {
+            Destroy(candleTutorial);
             PuzzleControl();
         }
-        else if (Input.GetButtonDown("Interaction") && GameManagement.staticGetLighter == true && fire_state && GameManagement.staticPlaymode == "multiplay")
+        else if (Input.GetButtonDown("Interaction") && GameManagement.staticGetLighter && fire_state && GameManagement.staticTurnOnLighter && GameManagement.staticPlaymode == "multiplay")
         {
+            Destroy(candleTutorial);
             PV.RPC("MultiPuzzleControl", RpcTarget.All, this.gameObject.transform.position);
         }
     }
 
     public void PuzzleControl()
     {
-        //if (fire.GetComponent<ParticleSystem>().isPlaying == true && fire_state)
-        //{
-        //    fire.GetComponent<ParticleSystem>().Stop();
-        //    pairObject.GetComponent<Light>().enabled = false;
-        //    puzzleDirector.GetComponent<PuzzleDirector>().Decrease();
-        //}
-        if (fire.GetComponent<ParticleSystem>().isPlaying == false && fire_state)
+        if (fire.GetComponent<ParticleSystem>().isPlaying == true)
+        {
+            fire.GetComponent<ParticleSystem>().Stop();
+            pairObject.GetComponent<Light>().enabled = false;
+            puzzleDirector.GetComponent<PuzzleDirector>().Decrease();
+        }
+        if (fire.GetComponent<ParticleSystem>().isPlaying == false)
         {
             fire.GetComponent<ParticleSystem>().Play();
             pairObject.GetComponent<Light>().enabled = true;

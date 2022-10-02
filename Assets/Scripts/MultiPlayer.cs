@@ -59,7 +59,7 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
     public GameObject anotherPlayer;
 
     public PhotonView PV;
-
+    public GameObject lighterTutorial;
 
 
     
@@ -102,6 +102,7 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
         theCamera = gameObject.transform.GetChild(0).GetComponent<Camera>();
 
         PV = photonView;
+        lighterTutorial = GameObject.Find("LighterTutorial");
     }
 
     // Update is called once per frame
@@ -137,29 +138,29 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
         //transform.eulerAngles = new Vector3(0, currentCameraRotationY, 0);
 
         // ?êÌîÑ
-        if (Input.GetButtonDown("Jump") && isGround)
-        {
-            myRigid.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGround = false;
-        }
+        //if (Input.GetButtonDown("Jump") && isGround)
+        //{
+        //    myRigid.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        //    isGround = false;
+        //}
 
         // ?âÍ∏∞
-        if (Input.GetButtonDown("Crouch"))
-        {
-            isCrouch = !isCrouch;
-        }
+        //if (Input.GetButtonDown("Crouch"))
+        //{
+        //    isCrouch = !isCrouch;
+        //}
 
         // ?âÍ∏∞ ?ÅÌÉú?êÏÑú ??ÏßÅÏûÑ ?úÌïú
-        if (isCrouch)
-        {
-            applyCrouchPosY = crouchPosY;
-            applySpeed = crouchSpeed;
-        }
-        else
-        {
-            applyCrouchPosY = originPosY;
-            applySpeed = walkSpeed;
-        }
+        //if (isCrouch)
+        //{
+        //    applyCrouchPosY = crouchPosY;
+        //    applySpeed = crouchSpeed;
+        //}
+        //else
+        //{
+        //    applyCrouchPosY = originPosY;
+        //    applySpeed = walkSpeed;
+        //}
 
 
         Move(h, v);
@@ -176,15 +177,17 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
             MultiplayManager.Player2Rotation = gameObject.transform.GetChild(2).transform.rotation;
         }
         //g???ÖÎ†•???ºÏù¥?∞Ïùò Î∂àÏùÑ ÏºúÍ≥† ?àÎã§.
-        if (Input.GetButtonDown("Light") || OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
+        if ((Input.GetButtonDown("Light") || OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger)) && GameManagement.staticGetLighter)
         {
             if (light.activeSelf)
             {
                 light.SetActive(false);
+                GameManagement.staticTurnOnLighter = false;
             }
             else
             {
                 light.SetActive(true);
+                GameManagement.staticTurnOnLighter = true;
             }
         }
     }
@@ -197,11 +200,11 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
         Vector3 moveVelocity = Vector3.zero;
 
         //shift?§Î? ?ÑÎ•¥Î©??ÑÏßÑ?çÎèÑÍ∞? Ï¶ùÍ??úÎã§.
-        if (Input.GetButton("Dash"))
-        {
-            applySpeed = runSpeed;
-        }
-        else if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        //if (Input.GetButton("Dash"))
+        //{
+        //    applySpeed = runSpeed;
+        //}
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
             applySpeed = walkSpeed;
             if(GameManagement.staticPlaymode == "soloplay" || GameManagement.staticPlaymode == null)
@@ -278,15 +281,19 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
         {
             GameObject GMLighter = GameObject.FindGameObjectWithTag("Lighter");
             Destroy(GMLighter);
+            Destroy(lighterTutorial);
             light.SetActive(true);
             lighter.SetActive(true);
+            GameManagement.staticTurnOnLighter = true;
         }
         else if (str == "lighter2")
         {
             GameObject GMLighter2 = GameObject.FindGameObjectWithTag("Lighter2");
             Destroy(GMLighter2);
+            Destroy(lighterTutorial);
             light.SetActive(true);
             lighter.SetActive(true);
+            GameManagement.staticTurnOnLighter = true;
         }
     }
 
@@ -297,16 +304,20 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
         {
             GameObject GMLighter = GameObject.Find("lighter");
             Destroy(GMLighter);
+            Destroy(lighterTutorial);
             light.SetActive(true);
             lighter.SetActive(true);
+            GameManagement.staticTurnOnLighter = true;
             GameManagement.staticGetLighter = true;
         }
         else if (other.tag == "Lighter2" && GameManagement.staticGetLighter == false)
         {
             GameObject GMLighter2 = GameObject.Find("lighter2");
             Destroy(GMLighter2);
+            Destroy(lighterTutorial);
             light.SetActive(true);
             lighter.SetActive(true);
+            GameManagement.staticTurnOnLighter = true;
             GameManagement.staticGetLighter = true;
         }
     }

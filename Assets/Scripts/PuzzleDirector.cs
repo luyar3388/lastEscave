@@ -12,10 +12,6 @@ public class PuzzleDirector : MonoBehaviourPunCallbacks
     GameObject door;
     public PhotonView PV;
 
-    public int fireCount1;
-    public int fireCount2;
-
-    public Text playerCountText;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +22,6 @@ public class PuzzleDirector : MonoBehaviourPunCallbacks
 
         PV = photonView;
 
-        fireCount1 = 0;
-        fireCount2 = 0;
     }
 
     // Update is called once per frame
@@ -44,32 +38,6 @@ public class PuzzleDirector : MonoBehaviourPunCallbacks
                 PV.RPC("Complete", RpcTarget.All);
             }
         }
-
-        if (GameManagement.staticPlaymode == "soloplay" || GameManagement.staticPlaymode == null)
-        {
-
-        }
-        else if (GameManagement.staticPlaymode == "multiplay")
-        {
-
-            if (PV.IsMine)
-            {
-                fireCount1 = fireCount;
-            }
-            PV.RPC("PlayersFireCount", RpcTarget.All, fireCount1);
-            playerCountText.text = "me: " + fireCount1 + "\nother player: " + fireCount2;
-        }
-
-        playerCountText.text = "me: " + fireCount1 + "\nother player: "+ fireCount2;
-    }
-
-    [PunRPC]
-    public void PlayersFireCount()
-    {
-        if (!PV.IsMine)
-        {
-            fireCount2 = fireCount1;
-        }
     }
 
     public void Increase()
@@ -84,7 +52,7 @@ public class PuzzleDirector : MonoBehaviourPunCallbacks
         Debug.Log(fireCount);
     }
 
-    [PunRPC]
+    //[PunRPC]
     void Complete()
     {
         door.transform.Translate(Vector3.up * Time.deltaTime);

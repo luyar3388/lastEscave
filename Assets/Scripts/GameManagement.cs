@@ -25,8 +25,9 @@ public class GameManagement : MonoBehaviourPunCallbacks
     public static string staticPlayTime;
     public static string staticDisplay;
     public static string staticPlaymode;
-    public static float staticLimitTime = 300.0f;
+    public static float staticLimitTime = 360.0f;
     public static bool staticGetLighter = false;
+    public static bool staticTurnOnLighter = false;
     public static bool staticDoorTrigger = false;
 
     private static GameManagement _instance;
@@ -144,6 +145,8 @@ public class GameManagement : MonoBehaviourPunCallbacks
 
     public void init()
     {
+        staticTurnOnLighter = false;
+        staticGetLighter = false;
         NetworkManager.StaticNetworkDisconnect();
         SceneManager.LoadScene("Main");
     }

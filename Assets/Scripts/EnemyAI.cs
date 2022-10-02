@@ -26,8 +26,7 @@ public class EnemyAI : MonoBehaviour
     public VideoPlayer video;
     public GameObject attackedImage;
     //GameObject attackedPlayer = GameObject.FindGameObjectWithTag("Player");
-    float timer;
-    float waitingTime = 8.0f;
+
     public GameObject LifeDirector;
   
     
@@ -75,16 +74,16 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        if (attackedImage.activeSelf)
-        {
-            timer += Time.deltaTime;
-            if (timer > waitingTime)
-            {
-                video.Stop();
-                attackedImage.SetActive(false);
-            }
-            return;
-        }
+        //if (attackedImage.activeSelf)
+        //{
+        //    timer += Time.deltaTime;
+        //    if (timer > waitingTime)
+        //    {
+        //        video.Stop();
+        //        attackedImage.SetActive(false);
+        //    }
+        //    return;
+        //}
 
         Collider[] t_cols = Physics.OverlapSphere(transform.position, m_distance, m_layerMask); // 주변에 있는 플레이어 컬라이더를 검출
 
@@ -100,11 +99,14 @@ public class EnemyAI : MonoBehaviour
                 {
                     if (t_hit.transform.CompareTag("Player")) //Ray에 닿은 객체가 Player라면 둘 사이에 장애물이 없는 걸로 간주
                     {
-                        CancelInvoke();
-                        m_target = t_tfPlayer;
-                        curState = CurrentState.Run;
-                        anim.Play("Run");
-                        transform.position = Vector3.Lerp(transform.position, t_hit.transform.position, 0.001f); //플레이어를 향해 다가감
+                        if (GameManagement.staticTurnOnLighter)
+                        {
+                            CancelInvoke();
+                            m_target = t_tfPlayer;
+                            curState = CurrentState.Run;
+                            anim.Play("Run");
+                            transform.position = Vector3.Lerp(transform.position, t_hit.transform.position, 0.001f); //플레이어를 향해 다가감
+                        }
                     }
                    
                 }
@@ -143,11 +145,16 @@ public class EnemyAI : MonoBehaviour
                 {
                     if (t_hit.transform.CompareTag("Player")) //Ray에 닿은 객체가 Player라면 둘 사이에 장애물이 없는 걸로 간주
                     {
-                        CancelInvoke();
-                        m_target = t_tfPlayer;
-                        curState = CurrentState.Run;
-                        anim.Play("Run");
-                        transform.position = Vector3.Lerp(transform.position, t_hit.transform.position, 0.001f); //플레이어를 향해 다가감
+                        if (GameManagement.staticTurnOnLighter)
+                        {
+                            CancelInvoke();
+                            m_target = t_tfPlayer;
+                            curState = CurrentState.Run;
+                            anim.Play("Run");
+                            transform.position = Vector3.Lerp(transform.position, t_hit.transform.position, 0.001f); //플레이어를 향해 다가감
+
+                        }
+
                     }
                     else
                     {
@@ -189,12 +196,12 @@ public class EnemyAI : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && GameManagement.staticTurnOnLighter)
         {
-            timer = 0.0f;
-            attackedImage.SetActive(true);
-            video.Stop();
-            video.Play();
+            //timer = 0.0f;
+            //attackedImage.SetActive(true);
+            //video.Stop();
+            //video.Play();
             LifeDirector.GetComponent<LifeDirector>().lifeControl();
             other.GetComponent<AudioSource>().Play();
             other.gameObject.transform.parent.gameObject.transform.position = new Vector3(-40, -12, 0);

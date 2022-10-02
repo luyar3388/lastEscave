@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Weapon
+  - Lighter
+  - Map
+  - Button
+  - Popup
+  - Light
+  - Candle
+  - vrkb_image0
+  - vrkb_label0
+  - vrkb_mallet
+  - InputField
+  - Item
+  - PlayerTransform
+  - RoomLight
+  - Bullet
+  - WayPoint
+  - PlayerMovePoint
+  - MinimapUI
+  - PlayerMine
+  - Lighter2
+  - RespawnCube
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Popup
+  - Map
+  - 
+  - Player
+  - PlayerMine
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

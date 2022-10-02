@@ -1,0 +1,160 @@
+{
+    "defaultLayerName": "defaultLayer",
+
+    "keyDefaults": {
+        "fontSize": 6.0,
+        "imageColor": "black"
+    },
+
+    "defaultLayer": {
+
+        "key0": { "output": "q", "label": "q" },
+        "key1": { "output": "w", "label": "w" },
+        "key2": { "output": "e", "label": "e" },
+        "key3": { "output": "r", "label": "r" },
+        "key4": { "output": "t", "label": "t" },
+        "key5": { "output": "y", "label": "y" },
+        "key6": { "output": "u", "label": "u" },
+        "key7": { "output": "i", "label": "i" },
+        "key8": { "output": "o", "label": "o" },
+        "key9": { "output": "p", "label": "p" },
+
+        "key10": { "output": "a", "label": "a" },
+        "key11": { "output": "s", "label": "s" },
+        "key12": { "output": "d", "label": "d" },
+        "key13": { "output": "f", "label": "f" },
+        "key14": { "output": "g", "label": "g" },
+        "key15": { "output": "h", "label": "h" },
+        "key16": { "output": "j", "label": "j" },
+        "key17": { "output": "k", "label": "k" },
+        "key18": { "output": "l", "label": "l" },
+
+        "key19": { "enableLayerForNextKey": "shiftLayer", "image" : "Images/shift-disabled-icon" },
+        "key20": { "output": "z", "label": "z" },
+        "key21": { "output": "x", "label": "x" },
+        "key22": { "output": "c", "label": "c" },
+        "key23": { "output": "v", "label": "v" },
+        "key24": { "output": "b", "label": "b" },
+        "key25": { "output": "n", "label": "n" },
+        "key26": { "output": "m", "label": "m" },
+        "key27": { "output": "\b", "image": "Images/backspace-icon" },
+
+        "key28": { "enableLayer": "symbolLayer", "fontSize": 5.0, "label": "SYM" },
+        "key29": { "enableLayer": "numberLayer", "fontSize": 5.0, "label" : "123" },
+        "key30": { "output": " ", "label": "space" },
+        "key31": { "action": "cancel", "imageColor": "red", "image": "Images/x-mark-circle-icon" },
+        "key32": { "action": "confirm", "imageColor": "green", "image": "Images/checkmark-circle-icon" }
+
+    },
+
+    "shiftLayer": {
+        "inheritsFromLayer": "defaultLayer",
+
+        "key0": { "output": "Q", "label": "Q" },
+        "key1": { "output": "W", "label": "W" },
+        "key2": { "output": "E", "label": "E" },
+        "key3": { "output": "R", "label": "R" },
+        "key4": { "output": "T", "label": "T" },
+        "key5": { "output": "Y", "label": "Y" },
+        "key6": { "output": "U", "label": "U" },
+        "key7": { "output": "I", "label": "I" },
+        "key8": { "output": "O", "label": "O" },
+        "key9": { "output": "P", "label": "P" },
+
+        "key10": { "output": "A", "label": "A" },
+        "key11": { "output": "S", "label": "S" },
+        "key12": { "output": "D", "label": "D" },
+        "key13": { "output": "F", "label": "F" },
+        "key14": { "output": "G", "label": "G" },
+        "key15": { "output": "H", "label": "H" },
+        "key16": { "output": "J", "label": "J" },
+        "key17": { "output": "K", "label": "K" },
+        "key18": { "output": "L", "label": "L" },
+
+        "key19": { "enableLayer": "shiftLockedLayer", "image" : "Images/shift-enabled-for-next-key-icon" },
+        "key20": { "output": "Z", "label": "Z" },
+        "key21": { "output": "X", "label": "X" },
+        "key22": { "output": "C", "label": "C" },
+        "key23": { "output": "V", "label": "V" },
+        "key24": { "output": "B", "label": "B" },
+        "key25": { "output": "N", "label": "N" },
+        "key26": { "output": "M", "label": "M" }
+
+    },
+
+    "shiftLockedLayer": {
+        "inheritsFromLayer": "shiftLayer",
+        "key19": { "enableLayer": "defaultLayer", "image" : "Images/shift-locked-icon" }
+    },
+
+    "numberLayer": {
+        "inheritsFromLayer": "defaultLayer",
+
+        "key0": { "output": "1", "label": "1" },
+        "key1": { "output": "2", "label": "2" },
+        "key2": { "output": "3", "label": "3" },
+        "key3": { "output": "4", "label": "4" },
+        "key4": { "output": "5", "label": "5" },
+        "key5": { "output": "6", "label": "6" },
+        "key6": { "output": "7", "label": "7" },
+        "key7": { "output": "8", "label": "8" },
+        "key8": { "output": "9", "label": "9" },
+        "key9": { "output": "0", "label": "0" },
+
+        "key10": { "output": "!", "label": "!" },
+        "key11": { "output": "@", "label": "@" },
+        "key12": { "output": "#", "label": "#" },
+        "key13": { "output": "$", "label": "$" },
+        "key14": { "output": "%", "label": "%" },
+        "key15": { "output": "^", "label": "^" },
+        "key16": { "output": "&", "label": "&" },
+        "key17": { "output": "*", "label": "*" },
+        "key18": { "output": "-", "label": "-" },
+
+        "key20": { "output": "/", "label": "/" },
+        "key21": { "output": "_", "label": "_" },
+        "key22": { "output": "\"", "label": "\"" },
+        "key23": { "output": ",", "label": "," },
+        "key24": { "output": ".", "label": "." },
+        "key25": { "output": "(", "label": "(" },
+        "key26": { "output": ")", "label": ")" },
+
+        "key29": { "enableLayer": "defaultLayer", "fontSize": 5.0, "label" : "ABC" }
+    },
+
+    "symbolLayer": {
+        "inheritsFromLayer": "defaultLayer",
+
+        "key0": { "output": "!", "label": "!" },
+        "key1": { "output": "@", "label": "@" },
+        "key2": { "output": "#", "label": "#" },
+        "key3": { "output": "$", "label": "$" },
+        "key4": { "output": "%", "label": "%" },
+        "key5": { "output": "^", "label": "^" },
+        "key6": { "output": "&", "label": "&" },
+        "key7": { "output": "*", "label": "*" },
+        "key8": { "output": "(", "label": "(" },
+        "key9": { "output": ")", "label": ")" },
+
+        "key10": { "output": "~", "label": "~" },
+        "key11": { "output": "`", "label": "`" },
+        "key12": { "output": "-", "label": "-" },
+        "key13": { "output": "+", "label": "+" },
+        "key14": { "output": "{", "label": "{" },
+        "key15": { "output": "}", "label": "}" },
+        "key16": { "output": "[", "label": "[" },
+        "key17": { "output": "]", "label": "]" },
+        "key18": { "output": "\\", "label": "\\" },
+
+        "key20": { "output": ";", "label": ";" },
+        "key21": { "output": ":", "label": ":" },
+        "key22": { "output": "'", "label": "'" },
+        "key23": { "output": "\"", "label": "\"" },
+        "key24": { "output": ",", "label": "," },
+        "key25": { "output": ".", "label": "." },
+        "key26": { "output": "?", "label": "?" },
+
+        "key28": { "enableLayer": "defaultLayer", "fontSize": 5.0, "label" : "ABC" }
+
+    }
+}

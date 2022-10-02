@@ -9,6 +9,8 @@ public class MultiAnim : MonoBehaviourPunCallbacks
     public Animator anim;
     public PhotonView PV;
 
+   
+
     // Start is called before the first frame update
     void Start()
     {

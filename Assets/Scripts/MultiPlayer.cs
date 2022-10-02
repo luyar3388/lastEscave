@@ -7,7 +7,7 @@ using Photon.Realtime;
 public class MultiPlayer : MonoBehaviourPunCallbacks
 {
 
-    // ?¤í”¼??ì¡°ì • ë³€??
+    // ?¤í”¼??ì¡°ì • ë³???
     [SerializeField]
     private float walkSpeed;
     [SerializeField]
@@ -20,12 +20,12 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
     [SerializeField]
     private float jumpForce;
 
-    // ?íƒœ ë³€??
+    // ?íƒœ ë³???
     private bool isRun = false;
     public bool isGround = true;
     private bool isCrouch = false;
 
-    // ?‰ì•˜?????¼ë§ˆ???‰ì„ì§€ ê²°ì •?˜ëŠ” ë³€??
+    // ?‰ì•˜?????¼ë§ˆ???‰ì„ì§? ê²°ì •?˜ëŠ” ë³???
     [SerializeField]
     private float crouchPosY;
     private float originPosY;
@@ -60,6 +60,9 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
 
     public PhotonView PV;
 
+
+
+    
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
@@ -128,7 +131,7 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
         //Vector2 mouseX = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
-        //PlayerCamera??ë§ˆìš°???Œì „ê°??€??
+        //PlayerCamera??ë§ˆìš°???Œì „ê°?????
 
         //currentCameraRotationY += mouseX.x * lookSensitivity;
         //transform.eulerAngles = new Vector3(0, currentCameraRotationY, 0);
@@ -146,7 +149,7 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
             isCrouch = !isCrouch;
         }
 
-        // ?‰ê¸° ?íƒœ?ì„œ ?€ì§ì„ ?œí•œ
+        // ?‰ê¸° ?íƒœ?ì„œ ??ì§ì„ ?œí•œ
         if (isCrouch)
         {
             applyCrouchPosY = crouchPosY;
@@ -190,10 +193,10 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
     [PunRPC]
     public void Move(float h, float v)
     {
-        //h?€ vê°’ìœ¼ë¡??„í›„ì¢Œìš° ?´ë™
+        //h?? vê°’ìœ¼ë¡??„í›„ì¢Œìš° ?´ë™
         Vector3 moveVelocity = Vector3.zero;
 
-        //shift?¤ë? ?„ë¥´ë©??„ì§„?ë„ê°€ ì¦ê??œë‹¤.
+        //shift?¤ë? ?„ë¥´ë©??„ì§„?ë„ê°? ì¦ê??œë‹¤.
         if (Input.GetButton("Dash"))
         {
             applySpeed = runSpeed;
@@ -324,7 +327,10 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
         {
             this.transform.position = new Vector3(-42, -12, -38);
         }
+        
     }
+
+     
 }
 
 
@@ -337,7 +343,7 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
 //public class MultiPlayer : MonoBehaviourPunCallbacks
 //{
 
-//    // ?¤í”¼??ì¡°ì • ë³€??
+//    // ?¤í”¼??ì¡°ì • ë³???
 //    [SerializeField]
 //    private float walkSpeed;
 //    [SerializeField]
@@ -350,12 +356,12 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
 //    [SerializeField]
 //    private float jumpForce;
 
-//    // ?íƒœ ë³€??
+//    // ?íƒœ ë³???
 //    private bool isRun = false;
 //    public bool isGround = true;
 //    private bool isCrouch = false;
 
-//    // ?‰ì•˜?????¼ë§ˆ???‰ì„ì§€ ê²°ì •?˜ëŠ” ë³€??
+//    // ?‰ì•˜?????¼ë§ˆ???‰ì„ì§? ê²°ì •?˜ëŠ” ë³???
 //    [SerializeField]
 //    private float crouchPosY;
 //    private float originPosY;
@@ -455,7 +461,7 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
 //        float v = Input.GetAxis("Vertical");
 //        float h = Input.GetAxis("Horizontal");
 //        //Vector2 mouseX = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
-//        //PlayerCamera??ë§ˆìš°???Œì „ê°??€??
+//        //PlayerCamera??ë§ˆìš°???Œì „ê°?????
 
 //        //currentCameraRotationY += mouseX.x * lookSensitivity;
 //        //transform.eulerAngles = new Vector3(0, currentCameraRotationY, 0);
@@ -475,7 +481,7 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
 //            isCrouch = !isCrouch;
 //        }
 
-//        // ?‰ê¸° ?íƒœ?ì„œ ?€ì§ì„ ?œí•œ
+//        // ?‰ê¸° ?íƒœ?ì„œ ??ì§ì„ ?œí•œ
 //        if (isCrouch)
 //        {
 //            applyCrouchPosY = crouchPosY;
@@ -506,10 +512,10 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
 //    [PunRPC]
 //    public void Move(float h, float v)
 //    {
-//        //h?€ vê°’ìœ¼ë¡??„í›„ì¢Œìš° ?´ë™
+//        //h?? vê°’ìœ¼ë¡??„í›„ì¢Œìš° ?´ë™
 //        Vector3 moveVelocity = Vector3.zero;
 
-//        //shift?¤ë? ?„ë¥´ë©??„ì§„?ë„ê°€ ì¦ê??œë‹¤.
+//        //shift?¤ë? ?„ë¥´ë©??„ì§„?ë„ê°? ì¦ê??œë‹¤.
 //        if (Input.GetButton("Dash"))
 //        {
 //            applySpeed = runSpeed;

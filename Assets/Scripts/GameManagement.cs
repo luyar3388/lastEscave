@@ -15,6 +15,8 @@ public class GameManagement : MonoBehaviourPunCallbacks
     public GameObject optionSet;
     public GameObject timeManager;
     public GameObject dbManager;
+
+
     //public GameObject Mainmenu;
     public bool isMenu = false;
 
@@ -56,40 +58,40 @@ public class GameManagement : MonoBehaviourPunCallbacks
     {
 
 
-        /*if (Input.GetButtonDown("Cancel")) //esc ¹öÆ°À» ´­·¶À» ¶§
+        /*if (Input.GetButtonDown("Cancel")) //esc ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         {
-            if (menuSet.activeSelf) //ÄÑÁ®ÀÖÀ¸¸é
+            if (menuSet.activeSelf) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             {
-                menuSet.SetActive(false); //²û
+                menuSet.SetActive(false); //ï¿½ï¿½
                 isMenu = false;
-                Time.timeScale = 1.0f; //½Ã°£À» ´Ù½Ã Àç»ý
+                Time.timeScale = 1.0f; //ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½
             }
             else
-            {                    //²¨Á®ÀÖÀ¸¸é
+            {                    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 menuSet.SetActive(true); //Å´
                 isMenu = true;
-                Time.timeScale = 0f; //½Ã°£À» ¸ØÃã
+                Time.timeScale = 0f; //ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             }
 
-            if (optionSet.activeSelf) //»ç¿îµå¸Þ´º°¡ ÄÑÁ®ÀÖÀ¸¸é
+            if (optionSet.activeSelf) //ï¿½ï¿½ï¿½ï¿½Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             {
-                optionSet.SetActive(false); //²û
-                Time.timeScale = 0f; //½Ã°£À» ¸ØÃã
+                optionSet.SetActive(false); //ï¿½ï¿½
+                Time.timeScale = 0f; //ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             }
 
-            Time.fixedDeltaTime = 0.02f * Time.timeScale; //fixedUpdate ÇÁ·¹ÀÓ ½Ã°£µµ ÇÔ²² ¹Ù²ãÁà¾ßÇÔ
+            Time.fixedDeltaTime = 0.02f * Time.timeScale; //fixedUpdate ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ô²ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         }
 
-        if (staticDisplay == "ÀüÃ¼È­¸é")
+        if (staticDisplay == "ï¿½ï¿½Ã¼È­ï¿½ï¿½")
         {
-            Screen.sleepTimeout = SleepTimeout.NeverSleep; // È­¸éÀÌ ²¨ÁöÁö ¾Ê°Ô ÇÏ´Â ÇÔ¼ö
-            Screen.SetResolution(1920, 1080, true); //ÀüÃ¼È­¸é
+            Screen.sleepTimeout = SleepTimeout.NeverSleep; // È­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
+            Screen.SetResolution(1920, 1080, true); //ï¿½ï¿½Ã¼È­ï¿½ï¿½
 
         }
-        else if (staticDisplay == "Ã¢¸ðµå")
+        else if (staticDisplay == "Ã¢ï¿½ï¿½ï¿½")
         {
-            Screen.sleepTimeout = SleepTimeout.NeverSleep; //È­¸éÀÌ ²¨ÁöÁö ¾Ê°Ô ÇÏ´Â ÇÔ¼ö
-            Screen.SetResolution(1280, 720, false); //Ã¢¸ðµå
+            Screen.sleepTimeout = SleepTimeout.NeverSleep; //È­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
+            Screen.SetResolution(1280, 720, false); //Ã¢ï¿½ï¿½ï¿½
 
         }*/
     }
@@ -131,7 +133,7 @@ public class GameManagement : MonoBehaviourPunCallbacks
 
     void OnDisable()
     {
-        // µ¨¸®°ÔÀÌÆ® Ã¼ÀÎ Á¦°Å
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     public void Manager()
@@ -173,11 +175,11 @@ public class GameManagement : MonoBehaviourPunCallbacks
         DBManager db = dbManager.GetComponent<DBManager>();
         TimeManager timer = timeManager.GetComponent<TimeManager>();
 
-        string timeNum = $"{timer.GetCurrentTime():N2}";    //ÇöÀç Å¸ÀÓÀ» ¼Ò¼öÁ¡ µÎ¹øÂ°ÀÚ¸® ±îÁö¸¸ °¡Á®¿È
-        float timeFloat = float.Parse(timeNum);           //Çüº¯È¯
-        int timeInt = Mathf.RoundToInt(timeFloat);        //¹Ý¿Ã¸²
-        string minute = (timeInt / 60).ToString();      //ºÐ °è»ê
-        string second = (timeInt % 60).ToString();      //ÃÊ °è»ê
+        string timeNum = $"{timer.GetCurrentTime():N2}";    //ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¼ï¿½ï¿½ï¿½ ï¿½Î¹ï¿½Â°ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        float timeFloat = float.Parse(timeNum);           //ï¿½ï¿½ï¿½ï¿½È¯
+        int timeInt = Mathf.RoundToInt(timeFloat);        //ï¿½Ý¿Ã¸ï¿½
+        string minute = (timeInt / 60).ToString();      //ï¿½ï¿½ ï¿½ï¿½ï¿½
+        string second = (timeInt % 60).ToString();      //ï¿½ï¿½ ï¿½ï¿½ï¿½
         string timeStr = minute + "m" + second + "s";
         staticPlayTime = timeStr;
 
@@ -190,7 +192,7 @@ public class GameManagement : MonoBehaviourPunCallbacks
             }
             else
             {
-                db.DBCommand("updateTime", staticPlayerName, timeStr, timeNum);      //ÇÃ·¹ÀÌÅ¸ÀÓÀ» ¾÷µ¥ÀÌÆ®ÇÏ´Â DBÇÔ¼ö
+                db.DBCommand("updateTime", staticPlayerName, timeStr, timeNum);      //ï¿½Ã·ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ï´ï¿½ DBï¿½Ô¼ï¿½
                 SceneManager.LoadScene("Escape");
             }
         }
@@ -199,7 +201,7 @@ public class GameManagement : MonoBehaviourPunCallbacks
             if (PhotonNetwork.IsMasterClient)
             {
                 string PlayerNames =  staticMultiPlayerNames.TrimEnd(',');
-                db.DBCommand("updateTime", PlayerNames, timeStr, timeNum);      //ÇÃ·¹ÀÌÅ¸ÀÓÀ» ¾÷µ¥ÀÌÆ®ÇÏ´Â DBÇÔ¼ö
+                db.DBCommand("updateTime", PlayerNames, timeStr, timeNum);      //ï¿½Ã·ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ï´ï¿½ DBï¿½Ô¼ï¿½
                 SceneManager.LoadScene("Escape");
             }
             else
@@ -254,18 +256,18 @@ public class GameManagement : MonoBehaviourPunCallbacks
 
     public void FullToggleClick()
     {
-        Screen.sleepTimeout = SleepTimeout.NeverSleep; // È­¸éÀÌ ²¨ÁöÁö ¾Ê°Ô ÇÏ´Â ÇÔ¼ö
-        Screen.SetResolution(1920, 1080, true); //ÀüÃ¼È­¸é
-        Debug.Log("ÀüÃ¼È­¸é ¼³Á¤¿Ï·á");
-        staticDisplay = "ÀüÃ¼È­¸é";
+        Screen.sleepTimeout = SleepTimeout.NeverSleep; // È­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
+        Screen.SetResolution(1920, 1080, true); //ï¿½ï¿½Ã¼È­ï¿½ï¿½
+        Debug.Log("ï¿½ï¿½Ã¼È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½");
+        staticDisplay = "ï¿½ï¿½Ã¼È­ï¿½ï¿½";
     }
 
     public void WindowToggleClick()
     {
-        Screen.sleepTimeout = SleepTimeout.NeverSleep; //È­¸éÀÌ ²¨ÁöÁö ¾Ê°Ô ÇÏ´Â ÇÔ¼ö
-        Screen.SetResolution(1280, 720, false); //Ã¢¸ðµå
-        Debug.Log("Ã¢¸ðµå ¼³Á¤¿Ï·á");
-        staticDisplay = "Ã¢¸ðµå";
+        Screen.sleepTimeout = SleepTimeout.NeverSleep; //È­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
+        Screen.SetResolution(1280, 720, false); //Ã¢ï¿½ï¿½ï¿½
+        Debug.Log("Ã¢ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½");
+        staticDisplay = "Ã¢ï¿½ï¿½ï¿½";
     }
 
 
@@ -273,7 +275,7 @@ public class GameManagement : MonoBehaviourPunCallbacks
     {
         if (isOn)
         {
-            Debug.Log("Easy ³­ÀÌµµ ¼³Á¤¿Ï·á");
+            Debug.Log("Easy ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½");
         }
         else
         {
@@ -285,7 +287,7 @@ public class GameManagement : MonoBehaviourPunCallbacks
     {
         if (isOn)
         {
-            Debug.Log("Normal ³­ÀÌµµ ¼³Á¤¿Ï·á");
+            Debug.Log("Normal ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½");
         }
         else
         {
@@ -297,7 +299,7 @@ public class GameManagement : MonoBehaviourPunCallbacks
     {
         if (isOn)
         {
-            Debug.Log("Hard ³­ÀÌµµ ¼³Á¤¿Ï·á");
+            Debug.Log("Hard ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½");
         }
         else
         {

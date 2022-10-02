@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TimeManager : MonoBehaviour
 {
-    public Text text_Timer;
+    public TextMesh text_Timer;
 
     float time_start;
     public float time_current; //시간 변수

@@ -25,6 +25,7 @@ TagManager:
   - PlayerMine
   - Lighter2
   - RespawnCube
+  - Monster
   layers:
   - Default
   - TransparentFX

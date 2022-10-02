@@ -3090,7 +3090,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b98fbffec5cfc9b429d481c6adf1ce1f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3186,9 +3186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d06d42a30c649844b816e3a66e41451b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 741169095}
-  volumeTextUI: {fileID: 616138597}
-  AudioManager: {fileID: 508970395}
 --- !u!4 &508970398
 Transform:
   m_ObjectHideFlags: 0

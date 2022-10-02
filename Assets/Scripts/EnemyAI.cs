@@ -12,7 +12,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] LayerMask m_layerMask = 0; // 플레이어 레이어 마스크 (타켓의 레이어만 검출할 수 있는 것)
     public enum CurrentState { Idle, Walk, Run, attack, Death };
     public CurrentState curState = CurrentState.Walk;
-
+    
+    
+    
     Animator anim;
     NavMeshAgent m_enemy = null;
 
@@ -26,7 +28,9 @@ public class EnemyAI : MonoBehaviour
     //GameObject attackedPlayer = GameObject.FindGameObjectWithTag("Player");
     float timer;
     float waitingTime = 8.0f;
-
+    public GameObject LifeDirector;
+  
+    
     public void SetTarget(Transform p_target) //위험지역 들어오면 순찰을 취소하고 타겟을 향해 쫓아감
     {
         curState = CurrentState.Walk;
@@ -65,6 +69,7 @@ public class EnemyAI : MonoBehaviour
         anim = GetComponent<Animator>(); //몬스터의 Animator 컴포넌트
         m_enemy = GetComponent<NavMeshAgent>();
         InvokeRepeating("MoveToNextWayPoint", 0f, 0.1f); //3초마다 반복
+        LifeDirector = GameObject.Find("LifeDirector");
     }
 
 
@@ -117,6 +122,8 @@ public class EnemyAI : MonoBehaviour
         {
             m_enemy.SetDestination(m_target.position);
         }
+
+        
 
     }
 
@@ -188,7 +195,8 @@ public class EnemyAI : MonoBehaviour
             attackedImage.SetActive(true);
             video.Stop();
             video.Play();
-
+            LifeDirector.GetComponent<LifeDirector>().lifeControl();
+            other.GetComponent<AudioSource>().Play();
             other.gameObject.transform.parent.gameObject.transform.position = new Vector3(-40, -12, 0);
             other.gameObject.transform.parent.gameObject.transform.localEulerAngles = new Vector3(0, 180, 0);
         }

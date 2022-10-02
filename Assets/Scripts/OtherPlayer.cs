@@ -6,7 +6,9 @@ using Photon.Pun;
 public class OtherPlayer : MonoBehaviourPunCallbacks, IPunObservable
 {
 
-    // Update is called once per frame
+    // Update is called once per frame   public GameObject skull1;
+   
+   
     void Update()
     {
         RPCUpdate();
@@ -62,4 +64,6 @@ public class OtherPlayer : MonoBehaviourPunCallbacks, IPunObservable
             MultiplayManager.Player2Rotation = (Quaternion)stream.ReceiveNext();
         }
     }
+
+    
 }

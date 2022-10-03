@@ -99,7 +99,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     if (t_hit.transform.CompareTag("Player")) //Ray에 닿은 객체가 Player라면 둘 사이에 장애물이 없는 걸로 간주
                     {
-                        if (GameManagement.staticTurnOnLighter)
+                        if (GameManagement.staticTurnOnLighter && GameManagement.staticGetLighter)
                         {
                             CancelInvoke();
                             m_target = t_tfPlayer;
@@ -145,7 +145,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     if (t_hit.transform.CompareTag("Player")) //Ray에 닿은 객체가 Player라면 둘 사이에 장애물이 없는 걸로 간주
                     {
-                        if (GameManagement.staticTurnOnLighter)
+                        if (GameManagement.staticTurnOnLighter && GameManagement.staticGetLighter)
                         {
                             CancelInvoke();
                             m_target = t_tfPlayer;
@@ -196,7 +196,7 @@ public class EnemyAI : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && GameManagement.staticTurnOnLighter)
+        if (other.tag == "Player" && GameManagement.staticTurnOnLighter && GameManagement.staticGetLighter)
         {
             //timer = 0.0f;
             //attackedImage.SetActive(true);

@@ -99,7 +99,7 @@ using Photon.Realtime;
 public class PuzzleCandle : MonoBehaviourPunCallbacks
 {
     GameObject fire;
-    GameObject pairObject;
+    GameObject crystal_Light;
     GameObject puzzleDirector;
     public bool fire_state;
 
@@ -110,7 +110,7 @@ public class PuzzleCandle : MonoBehaviourPunCallbacks
     void Start()
     {
         fire = transform.GetChild(6).gameObject;
-        pairObject = transform.GetChild(7).gameObject;
+        crystal_Light = transform.GetChild(8).gameObject;
         puzzleDirector = GameObject.Find("PuzzleDirector");
 
         PV = photonView;
@@ -142,13 +142,13 @@ public class PuzzleCandle : MonoBehaviourPunCallbacks
         if (fire.GetComponent<ParticleSystem>().isPlaying == true)
         {
             fire.GetComponent<ParticleSystem>().Stop();
-            pairObject.GetComponent<Light>().enabled = false;
+            crystal_Light.GetComponent<Light>().enabled = false;
             puzzleDirector.GetComponent<PuzzleDirector>().Decrease();
         }
         if (fire.GetComponent<ParticleSystem>().isPlaying == false)
         {
             fire.GetComponent<ParticleSystem>().Play();
-            pairObject.GetComponent<Light>().enabled = true;
+            crystal_Light.GetComponent<Light>().enabled = true;
             puzzleDirector.GetComponent<PuzzleDirector>().Increase();
         }
     }
@@ -157,7 +157,7 @@ public class PuzzleCandle : MonoBehaviourPunCallbacks
     public void MultiPuzzleControl(Vector3 pos)
     {
         PhotonNetwork.Instantiate("FireParticle", pos, Quaternion.identity);
-        pairObject.GetComponent<Light>().enabled = true;
+        crystal_Light.GetComponent<Light>().enabled = true;
         puzzleDirector.GetComponent<PuzzleDirector>().Increase();
     }
 

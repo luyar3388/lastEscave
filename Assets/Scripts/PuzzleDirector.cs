@@ -11,12 +11,13 @@ public class PuzzleDirector : MonoBehaviourPunCallbacks
     public int fireNumber;
     GameObject door;
     public PhotonView PV;
+    public bool doorSound = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        fireCount = 0;
+        fireCount = 9;
         fireNumber = 10;
         door = GameObject.Find("door");
 
@@ -56,6 +57,12 @@ public class PuzzleDirector : MonoBehaviourPunCallbacks
     void Complete()
     {
         door.transform.Translate(Vector3.up * Time.deltaTime);
+
+        if(doorSound == false)
+        {
+            door.GetComponent<AudioSource>().Play();
+            doorSound = true;
+        }
         if (door.transform.position.y > 500)
         {
             door.SetActive(false);

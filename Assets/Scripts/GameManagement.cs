@@ -29,6 +29,7 @@ public class GameManagement : MonoBehaviourPunCallbacks
     public static bool staticGetLighter = false;
     public static bool staticTurnOnLighter = false;
     public static bool staticDoorTrigger = false;
+    public static bool staticDie = false;
 
     private static GameManagement _instance;
     public static GameManagement Instance

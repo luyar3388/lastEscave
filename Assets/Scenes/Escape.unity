@@ -5329,7 +5329,6 @@ MonoBehaviour:
   optionSet: {fileID: 0}
   timeManager: {fileID: 0}
   dbManager: {fileID: 424777559}
-  Mainmenu: {fileID: 0}
   isMenu: 0
 --- !u!4 &1488558871
 Transform:
@@ -5565,7 +5564,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b98fbffec5cfc9b429d481c6adf1ce1f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0

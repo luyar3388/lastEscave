@@ -17,7 +17,7 @@ public class PuzzleDirector : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        fireCount = 9;
+        fireCount = 0;
         fireNumber = 10;
         door = GameObject.Find("door");
 

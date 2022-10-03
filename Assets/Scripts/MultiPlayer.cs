@@ -61,14 +61,13 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
     public PhotonView PV;
     public GameObject lighterTutorial;
 
-
-    
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
     }
     void Start()
     {
+
         Debug.Log("Player Start");
         if (GameObject.Find("MultiplayManager") != null)
         {
@@ -81,7 +80,7 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
                 anotherPlayer = GameObject.FindWithTag("Player");
             }
         }
-        
+
 
         gm = GameObject.Find("GameManagement").GetComponent<GameManagement>();
         walkSpeed = 10;
@@ -122,6 +121,13 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
         else
         {
             PlayerActive();
+        }
+
+        if (GameManagement.staticDie)
+        {
+            light.SetActive(false);
+            GameManagement.staticTurnOnLighter = false;
+            GameManagement.staticDie = false;
         }
     }
 
@@ -165,7 +171,7 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
 
         Move(h, v);
 
-        
+
         if (gameObject.transform.GetChild(2).GetComponent<PhotonView>().ViewID == 1001)
         {
             MultiplayManager.Player1Position = gameObject.transform.position;
@@ -207,7 +213,7 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
             applySpeed = walkSpeed;
-            if(GameManagement.staticPlaymode == "soloplay" || GameManagement.staticPlaymode == null)
+            if (GameManagement.staticPlaymode == "soloplay" || GameManagement.staticPlaymode == null)
                 anim.SetBool("isWalk", true);
         }
         else
@@ -334,12 +340,13 @@ public class MultiPlayer : MonoBehaviourPunCallbacks
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "RespawnCube")
+        if (other.tag == "RespawnCube")
         {
             this.transform.position = new Vector3(-42, -12, -38);
         }
-        
+
     }
+        
 
      
 }

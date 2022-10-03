@@ -28,8 +28,8 @@ public class EnemyAI : MonoBehaviour
     //GameObject attackedPlayer = GameObject.FindGameObjectWithTag("Player");
 
     public GameObject LifeDirector;
-  
-    
+
+
     public void SetTarget(Transform p_target) //위험지역 들어오면 순찰을 취소하고 타겟을 향해 쫓아감
     {
         curState = CurrentState.Walk;
@@ -69,6 +69,7 @@ public class EnemyAI : MonoBehaviour
         m_enemy = GetComponent<NavMeshAgent>();
         InvokeRepeating("MoveToNextWayPoint", 0f, 0.1f); //3초마다 반복
         LifeDirector = GameObject.Find("LifeDirector");
+
     }
 
 
@@ -99,7 +100,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     if (t_hit.transform.CompareTag("Player")) //Ray에 닿은 객체가 Player라면 둘 사이에 장애물이 없는 걸로 간주
                     {
-                        if (GameManagement.staticTurnOnLighter && GameManagement.staticGetLighter)
+                        if (GameManagement.staticTurnOnLighter)
                         {
                             CancelInvoke();
                             m_target = t_tfPlayer;
@@ -145,7 +146,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     if (t_hit.transform.CompareTag("Player")) //Ray에 닿은 객체가 Player라면 둘 사이에 장애물이 없는 걸로 간주
                     {
-                        if (GameManagement.staticTurnOnLighter && GameManagement.staticGetLighter)
+                        if (GameManagement.staticTurnOnLighter)
                         {
                             CancelInvoke();
                             m_target = t_tfPlayer;
@@ -206,6 +207,11 @@ public class EnemyAI : MonoBehaviour
             other.GetComponent<AudioSource>().Play();
             other.gameObject.transform.parent.gameObject.transform.position = new Vector3(-40, -12, 0);
             other.gameObject.transform.parent.gameObject.transform.localEulerAngles = new Vector3(0, 180, 0);
+
+            if (GameManagement.staticGetLighter)
+            {
+                GameManagement.staticDie = true;
+            }
         }
     }
 }

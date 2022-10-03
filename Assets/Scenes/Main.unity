@@ -3069,7 +3069,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 508970398}
-  - component: {fileID: 508970397}
   - component: {fileID: 508970396}
   m_Layer: 0
   m_Name: SoundManager
@@ -3090,7 +3089,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b98fbffec5cfc9b429d481c6adf1ce1f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3174,18 +3173,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &508970397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 508970395}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d06d42a30c649844b816e3a66e41451b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &508970398
 Transform:
   m_ObjectHideFlags: 0
@@ -5318,7 +5305,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 508970397}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: VolumeSlider
         m_Mode: 0
@@ -10819,7 +10806,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 508970397}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: SaveVolumeButton
         m_Mode: 1
